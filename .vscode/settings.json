@@ -1,0 +1,12 @@
+{
+    "search.useReplacePreview": false,
+    "dart.enableSdkFormatter": true,
+    "[dart]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "always"
+        },
+        "editor.defaultFormatter": "Dart-Code.dart-code"
+    },
+}

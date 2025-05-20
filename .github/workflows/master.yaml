@@ -1,0 +1,78 @@
+name: Dart CI/CD
+
+on:
+  push:
+    tags: [ v* ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: stable
+      - name: Setup SSH Keys
+        run: |
+          SSH_PATH="$HOME/.ssh"
+          mkdir -p "$SSH_PATH"
+          touch "$SSH_PATH/known_hosts"
+          echo "$PRIVATE_KEY" > "$SSH_PATH/id_rsa"
+          chmod 700 "$SSH_PATH"
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-keyscan 50.116.95.106 >> ~/.ssh/known_hosts
+          chmod 600 "$SSH_PATH/known_hosts"
+          chmod 600 "$SSH_PATH/id_rsa"
+          eval $(ssh-agent)
+          ssh-add "$SSH_PATH/id_rsa"
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - name: Run analysis
+      #   run: make analyze
+      # - name: Run tests
+      #   run: make test
+      # - name: Verify that nothing changed
+      #   run: test -z "$(git status --porcelain)"
+      - name: Build WEB release
+        run: make publish-web
+      - name: Build an Android release
+        run: make android
+
+  build-ios:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Bundle install
+        run: cd ./ios && bundle install
+      - name: Setup flutter
+        uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+      - name: Setup SSH Keys
+        run: |
+          SSH_PATH="$HOME/.ssh"
+          mkdir -p "$SSH_PATH"
+          touch "$SSH_PATH/known_hosts"
+          echo "$PRIVATE_KEY" > "$SSH_PATH/id_rsa"
+          chmod 700 "$SSH_PATH"
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-keyscan 50.116.95.106 >> ~/.ssh/known_hosts
+          chmod 600 "$SSH_PATH/known_hosts"
+          chmod 600 "$SSH_PATH/id_rsa"
+          eval $(ssh-agent)
+          ssh-add "$SSH_PATH/id_rsa"
+        env:
+          PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      # - name: Run analysis
+      #   run: make analyze
+      # - name: Run tests
+      #   run: make test
+      # - name: Verify that nothing changed
+      #   run: test -z "$(git status --porcelain)"
+      - name: Deploy to TestFlight
+        run: make publish-ios
+        env:
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}

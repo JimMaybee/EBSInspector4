@@ -1,0 +1,8 @@
+SHELL=/bin/sh
+USER=jimmaybee
+PATH=/usr/bin:/bin
+PWD=/Users/jimmaybee
+SHLVL=1
+HOME=/Users/jimmaybee
+LOGNAME=jimmaybee
+_=/usr/bin/env

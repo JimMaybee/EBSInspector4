@@ -1,0 +1,44 @@
+// Attribute codes:
+//   n: Numeric
+//   l: Logical
+//   (otherwise text) 
+//   r: Required
+//   *: Default attribute
+//   =: Default value - must be last code for the attribute
+
+#define fontNames = Helvetica, Courier, Times, Arial, Karla, Montserrat, NotoSans, VeronaSerial
+#define colors = Clear, Black, White, Gray, LightGray, Red, Green, LightGreen, Blue, Yellow, Brown, Purple, Orange
+
+SECTION     DIRECTIVE               ATTRIBUTES
+Database
+            collection(ob)          name, key, parent(=)
+AppMenu
+            bannerLogo              name(r)
+            menuItem                text(r), template(r), required(=)
+SplitView
+            drawList                template(r), title(r), sortField(=)
+            drawForm                title(r), template(r), width(n=8)
+List
+            cell(b)                 width(n=4), rowHeight(n=.5)
+            drawLabel               label(=), data(=), fontsize(nr)
+Shared
+            setMargins              left(n), right(n), top(n), bottom(n)
+            setIndent               left(rn), right(rn)
+            moveTop
+            moveBottom
+            moveLeft                distance(n*)
+            moveRight               distance(rn*)
+            moveUp                  distance(rn*)
+            moveDown                distance(rn*)
+            moveAbsolute            across(rn), down(rn)
+            saveCursor              name(=DefaultCursorName)
+            saveMaxCursor           name(=DefaultCursorName)
+            restoreCursor           name(=DefaultCursorName)
+Form
+            drawLabel               at(n), label(=), data(=), align, width(n), bold(l), fontSize(nr)
+            drawTextBox             at(n), label(=), labelWidth(n=0), name(r), width(n=2), default(=)
+Report
+            drawText                at(n), data(rf)
+            startNewPage            within(n=0)
+            definePageMask
+            drawPageMask

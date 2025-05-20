@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "118532743817",
+    "firebase_url": "https://ebs-inspector-2.firebaseio.com",
+    "project_id": "ebs-inspector-2",
+    "storage_bucket": "ebs-inspector-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118532743817:android:daef8901c009e3e5285c58",
+        "android_client_info": {
+          "package_name": "ca.eBusinessSolutions.EBSInspector2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118532743817-hhv6ouptls6p0qiiolqth4f16b4bugjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsvDbR7Ddv3OX1MIL-RQjhP9LAR5tbLCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118532743817-hhv6ouptls6p0qiiolqth4f16b4bugjb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "118532743817-s7de9k7h65f8sj2oupd45u15i705bn90.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ca.eBusinessSolutions.EBSInspector3"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118532743817:android:50231d59a3e508f9285c58",
+        "android_client_info": {
+          "package_name": "ca.eBusinessSolutions.EBSInspector3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118532743817-hhv6ouptls6p0qiiolqth4f16b4bugjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsvDbR7Ddv3OX1MIL-RQjhP9LAR5tbLCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118532743817-hhv6ouptls6p0qiiolqth4f16b4bugjb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "118532743817-s7de9k7h65f8sj2oupd45u15i705bn90.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ca.eBusinessSolutions.EBSInspector3"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
