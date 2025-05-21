@@ -23,11 +23,16 @@
 </ProjectList>
 
 <ProjectForm>
-    <DrawTextBox at=0 label="Project No.:"    labelWidth=1.5 name=ProjectNumber width=2 default=next /> 
+    <DrawLabel at=1 data="Test Label 1" width=6 fontColor=Blue bold /> <MoveDown .5/>
+    <DrawLabel at=4 data="Test Label 2" width=6 fontColor=Red underline />  <MoveDown .5/>
+    <DrawLabel at=4 data="Test Label 3" width=6 fontColor=Black fontSize=20 align=Center /> <MoveDown .5/>
+    <DrawLabel at=4 data="Test Label 4" width=6 fontColor=Black fontSize=20 align=Right />
+    
+    //<DrawTextBox at=0 label="Project No.:"    labelWidth=1.5 name=ProjectNumber width=2 default=next /> 
     //<MoveDown distance=.5 />
-    <DrawTextBox at=0 label="Client Name:"  labelWidth=1.5  name=ClientName   width=6 />    
+    //<DrawTextBox at=0 label="Client Name:"  labelWidth=1.5  name=ClientName   width=6 />    
     //<MoveDown distance=.5 />
-    <DrawTextBox at=0 label="Project Name:" labelWidth=1.5  name=ProjectName  width=6/>
+    //<DrawTextBox at=0 label="Project Name:" labelWidth=1.5  name=ProjectName  width=6/>
     //<MoveDown distance=.5 />
 </ProjectForm>
 
@@ -44,12 +49,12 @@
 
 <InspectionForm>
     <DrawTextBox at=0 label="Inspection #:" labelWidth=1.5 name=InspectionNumber width=2 default=next />
-    <MoveDown distance=.5 />
+    //<MoveDown distance=.5 />
     <DrawTextBox at=0   label="Inspection Date:" labelWidth=1.5  name=InspectionDate  width=2 />
 </InspectionForm>
 
 <InspectionReport>
-	<SetMargins top=1 left=.5 right=.5 bottom=1 />
+	//<SetMargins top=1 left=.5 right=.5 bottom=1 />
 	//<MoveTop />
 	<DrawText at=1 data="INSPECTION REPORT" fontSize=20 bold underline/>  
     //<MoveDown 1/>

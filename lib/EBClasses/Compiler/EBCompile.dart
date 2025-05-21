@@ -15,7 +15,7 @@ class EBCompile {
   static String blocksToCompile = "";
   static String breakPoint = "99999";
   static Map<String, EBDirectives> compiledTemplate = {};
- 
+
   static void logError(msg) {
     final lineNumber = errorLineNumber == 0 ? "" : "$errorLineNumber: ";
     compileErrors.add("$lineNumber$errorDirective");
@@ -31,6 +31,7 @@ class EBCompile {
   static EBDirective fillStyles = {};
   static EBDirective arrowStyles = {};
   static EBDirective photoLocnStyles = {};
+  static String templateName = "";
   static String? templateSource = "";
   static Map<String, String> sectionSource = {};
   static String templateSourceWithComments = "";
@@ -224,6 +225,7 @@ class EBCompile {
   static EBDirectives compileSection(String sectionContent, String sectionName, String sectionType) {
     final sectionContentSave = sectionContent;
     var directiveNumber = 0;
+
     ///EBPreprocess.sectionName = sectionName;
     ///EBPreprocess.isForm = sectionName.toLowerCase().endsWith("form");
     ///EBPreprocess.isReport = sectionName.toLowerCase().endsWith("report");

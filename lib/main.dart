@@ -11,7 +11,7 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 
 import 'EBClasses/Compiler/EBCompile.dart';
 import 'EBClasses/Compiler/EBDictionary.dart';
-import 'EBClasses/form_control_widgets/label.dart';
+import 'EBClasses/UI/EBExecute.dart';
 
 Future<String> addNetworkInfoToSentry() async {
   final connectivityResult = await Connectivity().checkConnectivity();
@@ -53,16 +53,27 @@ class MyApp extends StatelessWidget {
     var topMenu = false;
     if (kIsWeb) topMenu = true;
     if (defaultTargetPlatform == TargetPlatform.macOS) topMenu = true;
+
+    EBExecute.init();
+    //  EBForm.errorMessages = {};
+
+    var ctls = <Widget>[];
+
+    EBExecute.processFormDirectives(EBCompile.compiledTemplate["ProjectForm"]!);
+    ctls += EBExecute.ctls;
+    debugPrint("$ctls");
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "EBS-Inspector 3.0",
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Stack(children: [
-        Label(x: 1.0, y: 2.0, text: "Test Label 1", style: {"bold": true, "fontcolor": "Blue", "align": "Right", "url": "", "fontsize": 18.0}),
-        Label(x: 1.0, y: 4.0, text: "Test Label 2", style: {"bold": true, "fontcolor": "Red", "align": "Right", "url": "", "fontsize": 14.0}),
-      ]),
+      home: Stack(
+        children: ctls,
+        //  Label(x: 1.0, y: 2.0, text: "Test Label 1", style: {"bold": true, "fontcolor": "Blue", "align": "Right", "url": "", "fontsize": 18.0}),
+        // Label(x: 1.0, y: 4.0, text: "Test Label 2", style: {"bold": true, "fontcolor": "Red", "align": "Right", "url": "", "fontsize": 14.0}),
+      ),
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

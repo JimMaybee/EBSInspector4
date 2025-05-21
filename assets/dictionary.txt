@@ -35,10 +35,10 @@ Shared
             saveMaxCursor           name(=DefaultCursorName)
             restoreCursor           name(=DefaultCursorName)
 Form
-            drawLabel               at(n), label(=), data(=), align, width(n), bold(l), fontSize(nr)
+            drawLabel               at(n), label(=), data(=), align, width(n), bold(l), underline(l), fontName, backgroundcolor, fontSize(n), fontColor, align(=left), style(=defaultlabelstyle)
             drawTextBox             at(n), label(=), labelWidth(n=0), name(r), width(n=2), default(=)
 Report
-            drawText                at(n), data(rf)
+            drawText                at(n), data(rf), fontColor, fontSize, bold(l=No), underline(l=No)
             startNewPage            within(n=0)
             definePageMask
             drawPageMask

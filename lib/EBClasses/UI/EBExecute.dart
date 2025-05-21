@@ -121,11 +121,9 @@ class EBExecute {
     }
   }
 
-
   // These directives set values only - cursor, define vars, etc -  and do not generate form controls
   static bool _processCommonDirective(directive) {
     switch (directive["action"].toLowerCase()) {
-     
       case "setpagesize":
         pageSize = {"width": directive["width"], "height": directive["height"]};
         break;
@@ -225,7 +223,10 @@ class EBExecute {
     switch (action) {
       case "drawlabel":
 
-        String? text = directive["label"] + directive["data"];
+        //String? text = directive["label"] + directive["data"];
+        final text = directive["data"];
+        debugPrint("=== drawLabel $text $directive");
+
         ///text = EBDatabase.evaluate(directive["prefix"])! + EBDatabase.evaluate(text)! + EBDatabase.evaluate(directive["suffix"])!;
         if (directive.containsKey("rightalign")) {
           if (directive["rightalign"]) {
@@ -242,12 +243,9 @@ class EBExecute {
         }
         break;
 
-      
-
       default:
         return false;
     }
     return true;
   }
-
 }

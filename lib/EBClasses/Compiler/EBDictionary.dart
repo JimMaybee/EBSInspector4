@@ -205,8 +205,8 @@ class EBDictionary {
       return false;
     } else if (dictionary[sectionType]!.containsKey(action)) {
       directiveValCodes = dictionary[sectionType]![action];
-    ///} else if (allowCommon && dictionary["Shared"]!.containsKey(action)) {
-     /// directiveValCodes = dictionary["Shared"]![action];
+    } else if (allowCommon && dictionary["Shared"]!.containsKey(action)) {
+      directiveValCodes = dictionary["Shared"]![action];
     } else {
       EBCompile.logError("Invalid directive '$action' in '$sectionName' section ***");
       return false;
