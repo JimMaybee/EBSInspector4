@@ -20,7 +20,7 @@ class Label extends StatelessWidget {
     var align = TextAlign.left;
     if (style!["align"].toLowerCase() == "center") align = TextAlign.center;
     if (style!["align"].toLowerCase() == "right") align = TextAlign.right;
-    debugPrint("==== Align = ${style!["align"]}");
+    debugPrint("==== Align = ${style!["align"]}  width=");
 
     Widget labelWidget;
 
